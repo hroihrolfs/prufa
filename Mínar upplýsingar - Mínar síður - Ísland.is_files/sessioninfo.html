@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://innskra.island.is/connect/sessioninfo -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Check IDP Session</title>
+    </head>
+    <body>
+        <script id="sessionInfoPayload" type="text/template">{"status":"Ok","expiresUtc":"2024-10-19T21:16:58+00:00","expiresIn":3598,"isExpired":false}</script>
+        <script type="text/javascript">
+            try {
+                const sessionInfo = JSON.parse(document.getElementById('sessionInfoPayload').innerHTML);
+                const message = {
+                    ...sessionInfo,
+                    type: 'SessionInfo'
+                }
+                // We use wild card as targetOrigin as the information is not sensitive.
+                window.parent?.postMessage(message, '*');
+            } catch {
+                // Silently fail
+            } 
+        </script>
+    
+
+</body></html>
